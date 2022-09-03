@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;ConectorPaulo&apos; to &apos;ConectoresPaulo&apos;&#x0A;- Original project: &apos;Tema_12_JDBC&apos;&#x0A;- Original element: &apos;Tema_12_JDBC/src/ConectorPaulo&apos;&#x0A;- Renamed element: &apos;Tema_12_JDBC/src/ConectoresPaulo&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;ConectorPaulo&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;ConectorPaulo" name="ConectoresPaulo" qualified="false" references="true" stamp="1642068982158" textual="false" version="1.0"/>
+</session>

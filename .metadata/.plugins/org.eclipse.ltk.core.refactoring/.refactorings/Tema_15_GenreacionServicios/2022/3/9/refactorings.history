@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;Seguridad&apos; to &apos;seguridad&apos;&#x0A;- Original project: &apos;Tema_15_GenreacionServicios&apos;&#x0A;- Original element: &apos;Tema_15_GenreacionServicios/src/Seguridad&apos;&#x0A;- Renamed element: &apos;Tema_15_GenreacionServicios/src/seguridad&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;Seguridad&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;Seguridad" name="seguridad" qualified="false" references="true" stamp="1646293535698" textual="false" version="1.0"/>
+</session>

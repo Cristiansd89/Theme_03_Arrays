@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;Examen_Segundo/src/Ejercicio_01&apos;&#x0A;- Original project: &apos;Tema_11_ProgramacionEnRed&apos;&#x0A;- Destination element: &apos;Examen_Segundo/src/Ejercicio_01&apos;&#x0A;- Original elements:&#x0A;     Practica_13_BusquedaSecuencial.ServidorSecuencial.java&#x0A;     Practica_13_BusquedaSecuencial.ClienteBusqueda.java" description="Copy compilation units" destination="=Examen_Segundo/src&lt;Ejercicio_01" element1="/src&lt;Practica_13_BusquedaSecuencial{ServidorSecuencial.java" element2="/src&lt;Practica_13_BusquedaSecuencial{ClienteBusqueda.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1637912122507" units="2" version="1.0"/>
+</session>

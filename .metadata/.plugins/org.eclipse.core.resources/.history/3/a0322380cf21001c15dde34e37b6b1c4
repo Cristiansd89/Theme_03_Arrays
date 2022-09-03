@@ -1,0 +1,10 @@
+package Ejemplo_01;
+
+public class Pasar_BBDD {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

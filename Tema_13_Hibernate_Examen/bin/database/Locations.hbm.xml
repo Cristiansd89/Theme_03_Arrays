@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 24 ene 2022 11:02:28 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="examen" dynamic-insert="false" dynamic-update="false" mutable="true" name="database.Locations" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="locations">
+        <id name="locationId" type="java.lang.Integer">
+            <column name="location_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="database.Countries" embed-xml="true" fetch="select" insert="true" name="countries" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="2" name="country_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="streetAddress" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="street_address"/>
+        </property>
+        <property generated="never" lazy="false" name="postalCode" optimistic-lock="true" type="string" unique="false">
+            <column length="12" name="postal_code"/>
+        </property>
+        <property generated="never" lazy="false" name="city" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="city" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="stateProvince" optimistic-lock="true" type="string" unique="false">
+            <column length="25" name="state_province"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="departmentses" optimistic-lock="true" sort="unsorted" table="departments">
+            <key on-delete="noaction">
+                <column name="location_id"/>
+            </key>
+            <one-to-many class="database.Departments" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

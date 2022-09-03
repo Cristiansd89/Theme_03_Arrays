@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 24 ene 2022 11:02:28 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="examen" dynamic-insert="false" dynamic-update="false" mutable="true" name="database.Jobs" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="jobs">
+        <id name="jobId" type="java.lang.Integer">
+            <column name="job_id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="jobTitle" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="job_title" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="minSalary" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="min_salary" precision="8"/>
+        </property>
+        <property generated="never" lazy="false" name="maxSalary" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="max_salary" precision="8"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="employeeses" optimistic-lock="true" sort="unsorted" table="employees">
+            <key on-delete="noaction">
+                <column name="job_id" not-null="true"/>
+            </key>
+            <one-to-many class="database.Employees" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

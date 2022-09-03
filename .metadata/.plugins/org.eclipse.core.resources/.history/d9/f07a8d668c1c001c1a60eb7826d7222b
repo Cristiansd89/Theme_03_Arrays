@@ -1,0 +1,82 @@
+package Ejemplo_01;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class CrearBbdd_Menu {
+
+	public static void main(String[] args) {
+		
+		
+		String url = "jdbc:mysql://localhost:3306/"; 
+		String usuario = "profe";
+		String password = "abc123";
+		
+		String nombre;
+		String apellido1;
+		String apellido2;
+		
+		int opcion;
+		boolean salir ;
+		
+		try {
+			
+		
+			do {
+				opcion = Menu();
+				salir =(opcion == 4);
+			
+				switch(opcion) {
+				case 1 :
+					System.out.println("4");
+					break;
+					
+				case 2 :
+						System.out.println("5");
+						break;
+						
+				case 3 :
+						System.out.println("6");
+						break;
+						
+			
+			}while(!salir);
+				System.out.println("Fin del programa");
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		}
+
+}
+	public static int Menu() {
+		int opcion;
+		
+		boolean opValida;
+		Scanner ent = new Scanner(System.in);
+		
+		System.out.println("Menu de operaciones ");
+		System.out.println("1- Crea base de datos ");
+		System.out.println("2- Añadir alumno  ");
+		System.out.println("3- Mostrar Alumnos ");
+		System.out.println("4- Para terminar");
+		
+		
+		do {
+			opcion = ent.nextInt();
+			opValida = (opcion >=1 && opcion <=4);
+			if(!opValida) {
+				System.out.println("La opcion es entre 1 y 4");
+			}
+			
+		}while(!opValida);
+		
+		return opcion;
+		
+	}
+	
+	
+	
+
+}

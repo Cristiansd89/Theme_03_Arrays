@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;Ejemplo_03_Fusion&apos; to &apos;Ejemplo_03_Array_Fusion&apos;&#x0A;- Original project: &apos;Tema_14_UDP&apos;&#x0A;- Original element: &apos;Tema_14_UDP/src/Ejemplo_03_Fusion&apos;&#x0A;- Renamed element: &apos;Tema_14_UDP/src/Ejemplo_03_Array_Fusion&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;Ejemplo_03_Fusion&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;Ejemplo_03_Fusion" name="Ejemplo_03_Array_Fusion" qualified="false" references="true" stamp="1643728387164" textual="false" version="1.0"/>
+</session>

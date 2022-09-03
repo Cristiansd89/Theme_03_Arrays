@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;pom.xml&apos; to &apos;modules&apos;&#x0A;- Original project: &apos;springboot-course-modules-master&apos;&#x0A;- Destination element: &apos;modules&apos;&#x0A;- Original element: &apos;pom.xml&apos;&#x0A;- Update references to refactored element" description="Move file" element1="springboot-modules-config/pom.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1650525955925" target="springboot-modules-config/src/main/java/com/course/springboot/modules" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,127 @@
+package miCodigo;
+
+/*
+ * Otros Paquetes
+ */
+import singleton.*;
+
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.internal.build.AllowSysOut;
+import org.hibernate.query.Query;
+
+import database.Countries;
+import database.CountryLanguages;
+import database.CountryLanguagesId;
+import database.Languages;
+
+import org.hibernate.HibernateException;
+
+public class MiCodigo {
+	
+	private static Session session;
+	private static Transaction tx;
+
+	public static void main(String[] args) {
+		
+		Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+		Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		//Crear la sesión.
+		 session = sesion.openSession();
+		//Crear una transación de la sesión.
+         tx = session.beginTransaction();
+         
+         
+        //paises("Nauru");
+         cambiar_idioma("Nauru","Tuvalu");
+
+	}
+	
+	public static void cambiar_idioma(String nombrePais ,String idioma) {
+			Query q = session.createQuery("FROM Countries WHERE name =:pais");
+			q.setParameter("pais", nombrePais);
+			
+			ArrayList<Countries> listapaises = (ArrayList<Countries>) q.list();
+			
+			if(listapaises.isEmpty()) {
+				System.out.println("Ese pais no existe");
+				
+			}else {
+				
+				for (Countries pais : listapaises) {
+					Set<CountryLanguages> pais_lenguaje = pais.getCountryLanguageses(); // El lenguajeses suele ir con el set
+					for(CountryLanguages id_lenguaje : pais_lenguaje) {
+						
+						Languages lenguaje = id_lenguaje.getLanguages(); // Apartir de aqui solo muestra el resultado
+						if(lenguaje.equals(idioma)) {
+							lenguaje.g
+						}
+						
+					
+						
+						
+								
+							
+										
+					}
+			
+				
+					
+				}
+			}
+		}
+			
+	
+	
+	public static void paises (String idioma) {
+		
+		Query q = session.createQuery("FROM Languages WHERE language= :idioma ");
+		q.setParameter("idioma", idioma);
+		/*
+		 * Primero Creamos un arrayList
+		 */
+		ArrayList<Languages> listaIdiomas = (ArrayList<Languages>) q.list();
+		/*
+		 * Comprobamos si esta vacio
+		 */
+		if(listaIdiomas.isEmpty()) {
+			System.out.println("Ese idioma no exite");
+		}else {
+			
+			System.out.println("El "+idioma +"se habla");
+			/*
+			 * Si no esta vacio introducimos el objeto en una variable para 
+			 * poder utilizarlo mas tarde
+			 */
+			Languages lenguaje = listaIdiomas.get(0);
+			
+			/*
+			 * Accedemos a la tabla  CountryLanguages   pasandole a la nueva variable 
+			 * la referencia de la tabla country Languages
+			 */
+			Set<CountryLanguages> paises_lenguaje = lenguaje.getCountryLanguageses();
+			
+			/*
+			 * Recorremos el set para extraer
+			 */
+			for(CountryLanguages id_paises : paises_lenguaje) {
+				Countries pais = id_paises.getCountries();
+				System.out.println("Paises :" +pais.getName());
+		
+			}
+			
+			
+		}
+	
+	}///Fin de paises
+	
+		
+
+}

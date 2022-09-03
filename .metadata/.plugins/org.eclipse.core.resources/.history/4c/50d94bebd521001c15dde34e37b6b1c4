@@ -1,0 +1,54 @@
+package Ejemplo_01;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class Pasar_BBDD {
+	
+	
+	
+		
+	public static void main(String[] args) {
+		
+		String url = "jdbc:mysql://localhost:3306/"; 
+		String usuario = "superProfe";
+		String password = "abc123";
+		
+		String usar;
+		String nombre;
+			
+		try {
+			
+			//Creamos la conecion de la primera Tabla
+			Connection conexion = DriverManager.getConnection(url, usuario, password);
+			Statement sql = conexion.createStatement();
+			
+			//Solicitamos el nombre de la base de datos que queremos utilizar
+			nombre = pedirNombre();
+			usar = "USE "+nombre;
+			sql.executeUpdate(usar);
+			
+			ResultSet res = sql.executeQuery("select * from Traza_Aragon");
+			while(res.next()) {
+				System.out.println(res.getString(1) +" "+res.getString(2) +" "+res.getString(3)+" " +res.getString(4));
+			}
+			
+		}catch(SQLException E) {
+			E.printStackTrace();
+		}
+		
+		
+		
+
+	}
+	
+	public static String pedirNombre() {
+		Scanner ent = new Scanner(System.in);
+		System.out.println("Nombre de la Base de Datos :");
+		String nombre = ent.nextLine();
+		return nombre;
+		
+	}
+
+
+}

@@ -1,0 +1,187 @@
+package Pre_Recu;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+
+
+public class Pre_Recu {
+	
+	private static Connection conector;
+
+	public static void main(String[] args) {
+		//datos_empleado(105);
+		transladar_departamento(8, 1700);
+
+	}
+	
+	
+	
+	public static void datos_empleado(int numEmpleado) {
+		
+		/*
+		 * Con la Clase estatica creada  llamamos a la conexion
+		 */
+		 conector = Conexion.conectar();
+		 
+		 String query = "select t2.job_title as Cargo, concat(t3.first_name,' ', t3.last_name) as jefe, t4.department_name as Nombre_Departamento, t5.city as ubicacion_departamento from employees t1 join jobs t2 on t1.job_id = t2.job_id join employees t3 on t3.employee_id = t1.manager_id join departments t4 on t1.department_id = t4.department_id join locations t5 on t4.location_id = t5.location_id where t1.employee_id =?"; 
+				 
+		try {
+			PreparedStatement sql = conector.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);// Establecemos la conexion 
+			sql.setInt(1, numEmpleado); // Le decimos que en el primer interrogante Introduzcamos el numero de empleado	
+			
+			ResultSet res = sql.executeQuery(); // Cargamos la query
+			
+			res.last(); // Coloca el puntero en la ultima posicion
+			int n = res.getRow(); // Me devuelve un numero de filas leidas por la query
+			
+			if(n == 0) {
+				System.out.print("Ese empleado no existe");
+			}else if (n ==1){
+				res.beforeFirst();
+				while(res.next()){
+					System.out.println("Cargo : "+res.getString(1));
+					System.out.println("Responsable : "+res.getString(2));
+					System.out.println("Departamento : "+res.getString(3));
+					System.out.println("Ciudad : "+res.getString(4));
+					
+				
+				}
+				
+			}
+			 conector.close();
+		} catch (SQLException e) {
+			System.out.println("Ha ocurrido un error ");
+			System.out.println("Codigo del Error : "+ e.getErrorCode());
+			System.out.println("Mensaje :  "  +e.getMessage());
+			System.out.println("Estado : " + e.getSQLState());
+		}
+		
+	}
+	
+	
+	public static void transladar_departamento(int dep_orig, int loc_dest) {
+		Scanner ent = new Scanner(System.in);
+		
+		conector = Conexion.conectar(); // Abrirmos la conexion con la BBDD
+		 
+		 String query = "select t1.department_name, t2.city,t3.country_name "
+		 		+ "from departments t1 "
+		 		+ "join locations t2 on t1.location_id = t2.location_id "
+		 		+ "join countries t3 on t2.country_id = t3.country_id "
+		 		+ "where t1.department_id =?"; 
+		 try {
+			
+			 PreparedStatement sql = conector.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			 sql.setInt(1, dep_orig);  // Insertamos en el primer Interrogante el numero de departamento
+		 
+			 ResultSet res = sql.executeQuery(); // Cargamos la query
+			 
+			 res.last(); // Coloca el puntero en la ultima posicion
+			 int n = res.getRow(); // Me devuelve un numero de filas leidas por la query
+			 String nombreDepartamento = res.getString(1);
+			 String ciudadOrigen =res.getString(2);
+			 String paisOrigen = res.getString(3);
+			 
+			 if(n ==0) {
+				 System.out.print("Ese departamento no existe");
+			 }else if (n == 1) {
+				 res.beforeFirst();
+				 while(res.next()) {
+					 System.out.println("Nombre Deparmento :" +nombreDepartamento);
+					 System.out.println("Ciudad Origen  " +ciudadOrigen + " || Pais Origen " +paisOrigen);
+				 
+				 
+					 
+					 
+					 String query2 = "UPDATE departments SET location_id =? where department_id=?" ;
+							 
+					 PreparedStatement sql2 = conector.prepareStatement(query2, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+					 sql2.setInt(1,loc_dest);
+					 sql2.setInt(2,loc_dest);
+					 
+					 
+					 sql2.executeUpdate();
+					 
+					 String ciudadDestino = res.getString("t2.city");
+					 String paisDestino = res.getString("t3.country_name");
+					 
+					 
+					System.out.println("Ciudad de destino " +ciudadDestino);
+					System.out.println("paisDestino "+paisDestino);
+					 
+				}
+			 }
+				 
+			 conector.close();
+					
+			 
+			 
+		 } catch (SQLException e) {
+			System.out.println("Ha ocurrido un error ");
+			System.out.println("Codigo del Error : "+ e.getErrorCode());
+			System.out.println("Mensaje :  "  +e.getMessage());
+			System.out.println("Estado : " + e.getSQLState());
+			e.printStackTrace();
+		}
+		 
+		 }
+		 
+	
+	
+		 
+	
+	
+
+	
+	
+	/*
+	 * Creamos una clase tipo Conexion para establecer la conexion
+	 */
+	public static class Conexion {
+		
+		/*
+		 * Atributos
+		 */
+		private static String url;
+		private static String usuario;
+		private static String password;
+		private static Connection conect = null;
+		
+		public static Connection conectar() {
+			/*
+			 * Inicializamos las variableas
+			 */
+			
+			try {
+				url = "jdbc:mysql://localhost:3306/examen"; 
+				usuario = "examen";
+				password = "Abcd1234+";
+				conect = DriverManager.getConnection(url,usuario,password);
+				
+				System.out.println("Conexion Establecida");
+				
+				
+				
+			} catch (SQLException e) {
+				System.err.println("Error en la conexion "+ e.getMessage());
+				e.printStackTrace();
+			}
+			
+			 return conect;
+		}
+			
+			
+	}
+
+	
+	
+
+}
+
+
+

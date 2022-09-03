@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 16 feb 2022 16:50:26 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="examenr1" dynamic-insert="false" dynamic-update="false" mutable="true" name="database.Countries" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="countries">
+        <id name="countryId" type="java.lang.Integer">
+            <column name="country_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="database.Regions" embed-xml="true" fetch="select" insert="true" name="regions" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="region_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="area" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="area" not-null="true" precision="10"/>
+        </property>
+        <property generated="never" lazy="false" name="nationalDay" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="national_day"/>
+        </property>
+        <property generated="never" lazy="false" name="countryCode2" optimistic-lock="true" type="string" unique="false">
+            <column length="2" name="country_code2" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="countryCode3" optimistic-lock="true" type="string" unique="false">
+            <column length="3" name="country_code3" not-null="true" unique="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="countryStatses" optimistic-lock="true" sort="unsorted" table="country_stats">
+            <key on-delete="noaction">
+                <column name="country_id" not-null="true"/>
+            </key>
+            <one-to-many class="database.CountryStats" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="countryLanguageses" optimistic-lock="true" sort="unsorted" table="country_languages">
+            <key on-delete="noaction">
+                <column name="country_id" not-null="true"/>
+            </key>
+            <one-to-many class="database.CountryLanguages" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

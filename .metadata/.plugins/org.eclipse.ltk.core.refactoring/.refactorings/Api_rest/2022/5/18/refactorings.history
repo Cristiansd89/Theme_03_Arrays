@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;Api_rest.DTO&apos; to &apos;api_rest.dto&apos;&#x0A;- Original project: &apos;Api_rest&apos;&#x0A;- Original element: &apos;Api_rest/src/main/java/Api_rest.DTO&apos;&#x0A;- Renamed element: &apos;Api_rest/src/main/java/api_rest.dto&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;Api_rest.DTO&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;Api_rest.DTO" name="api_rest.dto" qualified="false" references="true" stamp="1651740823751" textual="false" version="1.0"/>
+</session>

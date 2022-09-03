@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 16 feb 2022 16:50:26 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="examenr1" dynamic-insert="false" dynamic-update="false" mutable="true" name="database.CountryLanguages" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="country_languages">
+        <composite-id class="database.CountryLanguagesId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="countryId" type="int">
+                <column name="country_id"/>
+            </key-property>
+            <key-property name="languageId" type="int">
+                <column name="language_id"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="database.Countries" embed-xml="true" fetch="select" insert="false" name="countries" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="country_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="database.Languages" embed-xml="true" fetch="select" insert="false" name="languages" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="language_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="official" optimistic-lock="true" type="boolean" unique="false">
+            <column name="official" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

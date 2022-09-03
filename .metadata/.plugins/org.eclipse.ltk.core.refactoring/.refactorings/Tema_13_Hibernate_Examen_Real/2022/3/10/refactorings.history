@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;singleton.HibernateUtil&apos; to &apos;HibernateUtils&apos;&#x0A;- Original project: &apos;Hibernate_Examen_Real&apos;&#x0A;- Original element: &apos;singleton.HibernateUtil&apos;&#x0A;- Renamed element: &apos;singleton.HibernateUtils&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;HibernateUtil&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;singleton{HibernateUtil.java[HibernateUtil" matchStrategy="1" name="HibernateUtils" qualified="false" references="true" similarDeclarations="false" stamp="1646649746426" textual="false" version="1.0"/>
+</session>

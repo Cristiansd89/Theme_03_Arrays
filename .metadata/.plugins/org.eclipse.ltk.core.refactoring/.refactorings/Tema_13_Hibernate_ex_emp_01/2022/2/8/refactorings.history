@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CodigoEmpleados.java&apos; to &apos;Hibernate_ex_idiomas_04/src/CodigoLenguaje&apos;&#x0A;- Original project: &apos;Hibernate_ex_emp_01&apos;&#x0A;- Destination element: &apos;Hibernate_ex_idiomas_04/src/CodigoLenguaje&apos;&#x0A;- Original element: &apos;miCodigo.CodigoEmpleados.java&apos;" description="Copy compilation unit" destination="=Hibernate_ex_idiomas_04/src&lt;CodigoLenguaje" element1="/src&lt;miCodigo{CodigoEmpleados.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1645787710700" units="1" version="1.0"/>
+</session>

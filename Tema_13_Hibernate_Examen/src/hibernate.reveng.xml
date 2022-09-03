@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="examen" match-name="countries"/>
+  <table-filter match-catalog="examen" match-name="departments"/>
+  <table-filter match-catalog="examen" match-name="dependents"/>
+  <table-filter match-catalog="examen" match-name="employees"/>
+  <table-filter match-catalog="examen" match-name="jobs"/>
+  <table-filter match-catalog="examen" match-name="locations"/>
+  <table-filter match-catalog="examen" match-name="regions"/>
+</hibernate-reverse-engineering>

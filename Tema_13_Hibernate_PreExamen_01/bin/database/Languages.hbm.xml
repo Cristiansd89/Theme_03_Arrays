@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 16 feb 2022 16:50:26 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="examenr1" dynamic-insert="false" dynamic-update="false" mutable="true" name="database.Languages" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="languages">
+        <id name="languageId" type="java.lang.Integer">
+            <column name="language_id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="language" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="language" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="countryLanguageses" optimistic-lock="true" sort="unsorted" table="country_languages">
+            <key on-delete="noaction">
+                <column name="language_id" not-null="true"/>
+            </key>
+            <one-to-many class="database.CountryLanguages" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;InterfazCliente.java&apos; to &apos;Tema_14_UDP/src/Ejemplo_02_MiniChat&apos;&#x0A;- Original project: &apos;Tema_11_ProgramacionEnRed&apos;&#x0A;- Destination element: &apos;Tema_14_UDP/src/Ejemplo_02_MiniChat&apos;&#x0A;- Original element: &apos;Practica_16_InterfazChat.InterfazCliente.java&apos;" description="Copy compilation unit" destination="=Tema_14_UDP/src&lt;Ejemplo_02_MiniChat" element1="/src&lt;Practica_16_InterfazChat{InterfazCliente.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1643122759133" units="1" version="1.0"/>
+</session>

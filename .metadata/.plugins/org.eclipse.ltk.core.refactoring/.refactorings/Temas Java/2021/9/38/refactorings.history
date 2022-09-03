@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Tema_1_EstructurasControl.Ejercicio_2&apos; to &apos;Ejercicio_02&apos;&#x0A;- Original project: &apos;Temas Java&apos;&#x0A;- Original element: &apos;Tema_1_EstructurasControl.Ejercicio_2&apos;&#x0A;- Renamed element: &apos;Tema_1_EstructurasControl.Ejercicio_02&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Ejercicio_2&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Tema_1_EstructurasControl{Ejercicio_2.java[Ejercicio_2" matchStrategy="1" name="Ejercicio_02" qualified="false" references="true" similarDeclarations="false" stamp="1632301025565" textual="false" version="1.0"/>
+</session>
